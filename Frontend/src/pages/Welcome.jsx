@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import {Card} from "../components/index.js"
+import {HomeCard} from "../components/index.js"
 import{
   Activity,
   Code,
@@ -23,25 +23,25 @@ export default function Welcome() {
       icon: <Activity className="text-white" size={24} />,
       title: "Interactive Visualizations",
       description: "Watch algorithms come to life with real-time animations for sorting, graph traversals, and tree operations.",
-      color: "bg-blue-900"
+      color: "blue-900"
     },
     {
       icon: <Code className="text-white" size={24} />,
       title: "Code Playground",
       description: "Practice with embedded editor supporting JavaScript, Python, and C++ with instant feedback.",
-      color: "bg-purple-900"
+      color: "purple-900"
     },
     {
       icon: <BookOpen className="text-white" size={24} />,
       title: "Practice Problems",
       description: "Solve categorized DSA problems with step-by-step hints and detailed explanations.",
-      color: "bg-green-900"
+      color: "green-900"
     },
     {
       icon: <Trophy className="text-white" size={24} />,
       title: "Gamified Learning",
       description: "Earn badges, XP, and climb leaderboards as you master data structures and algorithms.",
-      color: "bg-yellow-800"
+      color: "yellow-800"
     }
   ];
 
@@ -50,37 +50,37 @@ export default function Welcome() {
       icon: <BarChart4 className="text-white" size={20} />,
       title: "Sorting Algorithms",
       items: ["Quick Sort", "Merge Sort", "Heap Sort", "Bubble Sort"],
-      color: "bg-blue-800"
+      color: "blue-800"
     },
     {
       icon: <Share2 className="text-white" size={20} />,
       title: "Graph Algorithms",
       items: ["BFS", "DFS", "Dijkstra", "A* Search"],
-      color: "bg-purple-800"
+      color: "purple-800"
     },
     {
       icon: <TreeDeciduous className="text-white" size={20} />,
       title: "Tree Structures",
       items: ["BST", "AVL", "Red-Black", "Heaps"],
-      color: "bg-green-800"
+      color: "green-800"
     },
     {
       icon: <Zap className="text-white" size={20} />,
       title: "Dynamic Programming",
       items: ["Knapsack", "LCS", "Edit Distance", "Fibonacci"],
-      color: "bg-yellow-700"
+      color: "yellow-700"
     },
     {
       icon: <ListOrdered className="text-white" size={20} />,
       title: "Linear Structures",
       items: ["Arrays", "Linked Lists", "Stacks", "Queues"],
-      color: "bg-sky-800"
+      color: "sky-800"
     },
     {
       icon: <Search className="text-white" size={20} />,
       title: "Search Techniques",
       items: ["Binary Search", "Linear Search", "Hash Tables", "Sliding Window"],
-      color: "bg-indigo-800"
+      color: "indigo-800"
     }
   ];
 
@@ -163,7 +163,7 @@ export default function Welcome() {
       <div className="mt-20 text-white px-6 py-12">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {features.map((feature, index) => (
-          <Card
+          <HomeCard
             key={index}
             icon={feature.icon}
             title={feature.title}
@@ -187,7 +187,7 @@ export default function Welcome() {
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {topics.map((topic, index) => (
-            <Card
+            <HomeCard
               key={index}
               icon={topic.icon}
               title={topic.title}

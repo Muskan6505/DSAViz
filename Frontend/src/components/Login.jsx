@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { X, Eye, Mail, Lock } from "lucide-react";
 
-export default function LoginModal({ onClose }) {
+export default function Login({ onClose }) {
     const [hidePassword, setHidePassword] = useState("password");
     return (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">

@@ -1,23 +1,21 @@
 import React from "react";
 
-export default function Card({ icon, title, description, items, color }) {
-  return (
-    <div className="bg-black/90 rounded-xl p-6 border border-gray-800 shadow hover:shadow-lg transition duration-300">
-      <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${color}`}>
-        {icon}
-      </div>
-      <h3 className="text-xl font-semibold text-white mb-3">{title}</h3>
+export function Card({ children }) {
+  return <div className="bg-black/80 border border-gray-700 rounded-lg shadow-md p-4 space-y-4">{children}</div>;
+}
 
-      {/* Either show description or list */}
-      {description ? (
-        <p className="text-gray-300">{description}</p>
-      ) : items && items.length > 0 ? (
-        <ul className="list-disc ml-5 text-gray-300 space-y-1 text-sm">
-          {items.map((item, idx) => (
-            <li key={idx}>{item}</li>
-          ))}
-        </ul>
-      ) : null}
-    </div>
-  );
+export function CardHeader({ children }) {
+  return <div className="border-b border-gray-700 pb-2 mb-2">{children}</div>;
+}
+
+export function CardTitle({ children, className = "" }) {
+  return <h3 className={`text-lg font-semibold text-white ${className}`}>{children}</h3>;
+}
+
+export function CardDescription({ children }) {
+  return <p className="text-sm text-gray-400">{children}</p>;
+}
+
+export function CardContent({ children, className = "" }) {
+  return <div className={`text-white ${className}`}>{children}</div>;
 }

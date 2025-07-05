@@ -14,7 +14,9 @@ import {
 } from './pages'; 
 
 import {
-
+  SortingVisualizer,
+  GraphVisualizer,
+  TreeVisualizer
 } from "./components/index.js"
 
 import AuthenticatedLayout from './layout/AuthenticatedLayout.jsx'
@@ -51,6 +53,9 @@ function App() {
           <Route path='/playground' element={<Playground/>} />
           <Route path='/visualizers' element={<Visualizers/>} />
           <Route path='/leaderboard' element={<Leaderboard/>} />
+          <Route path='/sortingVisualizer' element={<SortingVisualizer/>} />
+          <Route path='/graphVisualizer' element={<GraphVisualizer/>} />
+          <Route path='/treeVisualizer' element={<TreeVisualizer/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

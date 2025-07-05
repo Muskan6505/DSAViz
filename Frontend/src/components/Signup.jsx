@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { X, User, Mail, Lock, Eye } from "lucide-react";
+import Login from "./Login"
 
 export default function Signup({ onClose }) {
     const [showPassword, setShowPassword] = useState(false)
+    const [showLogin, setShowLogin] = useState(false);
+
     return (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 overflow-y-auto">
         <div className="bg-[#0e0e10] text-white w-full max-w-md p-6 rounded-2xl shadow-xl relative my-10">
@@ -87,14 +90,14 @@ export default function Signup({ onClose }) {
             </div>
 
             {/* Terms agreement */}
-            <div className="flex items-start mb-4">
+            {/* <div className="flex items-start mb-4">
             <input type="checkbox" className="mt-1 accent-blue-600" />
             <p className="ml-2 text-sm text-gray-400">
                 I agree to the{" "}
                 <span className="text-blue-500 underline cursor-pointer">Terms of Service</span> and{" "}
                 <span className="text-blue-500 underline cursor-pointer">Privacy Policy</span>
             </p>
-            </div>
+            </div> */}
 
             {/* Create Account */}
             <button className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 rounded-xl font-semibold">
@@ -119,11 +122,16 @@ export default function Signup({ onClose }) {
             </div> */}
 
             {/* Already have an account */}
-            <p className="text-sm text-center text-gray-400">
+            <p className="text-sm  text-gray-400 mt-5">
             Already have an account?{" "}
-            <span className="text-blue-500 hover:underline cursor-pointer">Sign in</span>
+            <span onClick={()=>{
+                setShowLogin(true)
+            }} 
+            className="text-blue-500 hover:underline cursor-pointer">Sign in</span>
             </p>
         </div>
+
+        {(showLogin && <Login onClose={() => setShowLogin(false)}/>)}
         </div>
     );
 }
