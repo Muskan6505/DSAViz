@@ -87,7 +87,7 @@ export default function Welcome() {
   return (
     <>
     <Navbar/>
-    <div style={{overflow:scroll, scrollbarWidth:"none"}} className="min-h-screen bg-gray-950  text-white items-center justify-center pt-18">
+    <div style={{overflow:scroll, scrollbarWidth:"none"}} className="min-h-screen bg-gray-950  text-white items-center justify-center pt-16">
       <div className=" min-h-screen bg-gradient-to-br from-gray-800 via-black to-indigo-900 text-white flex flex-col items-center justify-center py-10 mb-0">
         <p className="text-sm mb-4 text-blue-400 border border-blue-500 px-3 py-1 rounded-full">
           ⭐ Learn DSA Visually
@@ -133,22 +133,7 @@ export default function Welcome() {
         </div>
       </div>
 
-      {/* New Statistics and Highlight Section */}
-      <div className="w-full border-t-1 border-t-gray-800 py-8">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
-          {[
-            { number: '50+', label: 'Algorithms', icon: '⚡' },
-            { number: '200+', label: 'Problems', icon: '📘' },
-            { number: '1000+', label: 'Users', icon: '👥' },
-            { number: '94%', label: 'Success Rate', icon: '📈' },
-          ].map((stat, idx) => (
-            <div key={idx} className="flex flex-col items-center">
-              <div className="text-3xl mb-2">{stat.icon}</div>
-              <div className="text-2xl font-bold text-white">{stat.number}</div>
-              <div className="text-gray-400">{stat.label}</div>
-            </div>
-          ))}
-        </div>
+      {/* Highlight Section */}
 
         <div className="text-center mt-20 mx-2">
           <h2 className="text-4xl font-bold">
@@ -158,7 +143,6 @@ export default function Welcome() {
             Comprehensive tools and resources designed to make learning data structures and algorithms engaging and effective.
           </p>
         </div>
-      </div>
 
       <div className="mt-20 text-white px-6 py-12">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -231,7 +215,7 @@ export default function Welcome() {
       </Link>
 
       <p className="text-sm text-gray-400 text-center md:text-right">
-        © 2024 DSAViz. Built for developers, by developers.
+        © 2025 DSAViz. Built for developers, by developers.
       </p>
     </div>
 

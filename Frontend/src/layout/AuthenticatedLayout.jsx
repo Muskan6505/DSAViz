@@ -12,7 +12,7 @@ const AuthenticatedLayout = () => {
         isAuthenticated?
         <>
         <Navbar />
-        <div className="pt-15">
+        <div>
             <Outlet />
         </div>
         </>

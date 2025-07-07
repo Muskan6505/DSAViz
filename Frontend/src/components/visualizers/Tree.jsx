@@ -24,7 +24,6 @@ import {
     Trash2,
     Shuffle,
 } from "lucide-react";
-import Navbar from "../Navbar";
 import { Link } from "react-router-dom";
 
 const TreeVisualizer = ({onBack}) => {
@@ -515,9 +514,7 @@ const TreeVisualizer = ({onBack}) => {
     };
 
     return (
-        <>
-        <Navbar/>
-        <div className="space-y-6 bg-gradient-to-br from-black via-indigo-950 to-pink-900 pt-30 px-8 text-white">
+        <div className="space-y-10 bg-gradient-to-br from-black via-indigo-950 to-pink-900 pt-30 px-8 text-white">
         {/* Header */}
             <div className="flex items-center justify-between">
                 <div className="flex flex-col md:flex-row items-center md:justify-between w-full gap-3">
@@ -706,7 +703,6 @@ const TreeVisualizer = ({onBack}) => {
             </CardContent>
         </Card>
         </div>
-        </>
     );
 };
 

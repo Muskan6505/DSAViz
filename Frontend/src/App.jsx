@@ -3,6 +3,7 @@ import {
   Routes,
   Route
 } from 'react-router-dom';
+import { useState } from 'react';
 
 import {
   Welcome,
@@ -20,29 +21,43 @@ import {
 } from "./components/index.js"
 
 import AuthenticatedLayout from './layout/AuthenticatedLayout.jsx'
-// import { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { login, logout } from './features/userSlice.js';
-// import axios from 'axios';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { login, logout } from './features/userSlice.js';
+import axios from 'axios';
 
 
 function App() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const refreshToken = async () => {
-  //     try {
-  //       const res = await axios.post('api/v1/users/refresh', {}, {withCredentials:true});
-  //       const user = res.data.data
-  //       dispatch(login(user));
-  //     } catch (err) {
-  //       dispatch(logout());
-  //     }
-  //   };
+  useEffect(() => {
+    const refreshToken = async () => {
+      try {
+        setLoading(true);
+        const res = await axios.post('/api/v1/users/refresh', {}, { withCredentials: true });
+        if (res.status === 200 && res.data?.data) {
+          dispatch(login(res.data.data));
+        } else {
+          dispatch(logout());
+        }
+      } catch (err) {
+        console.log(err)
+        dispatch(logout());
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  //   refreshToken();
-  // }, [dispatch]);
+    refreshToken();
+  }, [dispatch]);
 
+  if (loading) return (
+    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-gray-800 via-black to-indigo-900">
+      <div className="w-12 h-12 border-4 border-white border-dashed rounded-full animate-spin"></div>
+        <p className="ml-4 text-white text-xl">Loading...</p>
+    </div>
+  );
 
   return (
 
@@ -53,9 +68,11 @@ function App() {
           <Route path='/playground' element={<Playground/>} />
           <Route path='/visualizers' element={<Visualizers/>} />
           <Route path='/leaderboard' element={<Leaderboard/>} />
-          <Route path='/sortingVisualizer' element={<SortingVisualizer/>} />
-          <Route path='/graphVisualizer' element={<GraphVisualizer/>} />
-          <Route path='/treeVisualizer' element={<TreeVisualizer/>} />
+          <Route element={<AuthenticatedLayout />}>
+            <Route path='/sortingVisualizer' element={<SortingVisualizer />} />
+            <Route path='/graphVisualizer' element={<GraphVisualizer />} />
+            <Route path='/treeVisualizer' element={<TreeVisualizer />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

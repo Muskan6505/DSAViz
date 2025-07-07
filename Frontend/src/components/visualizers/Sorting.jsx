@@ -13,7 +13,6 @@ import {
     SelectContent,
     SelectValue,
     Slider,
-    Navbar,
 } from "../index.js";
 
 import {
@@ -418,9 +417,8 @@ const SortingVisualizer = ({ onBack }) => {
     };
 
     return (
-        <>
-        <Navbar />
-        <div style={{overflow:scroll, scrollbarWidth:"none"}} className="space-y-10 min-h-screen bg-gradient-to-br from-black via-indigo-950 to-pink-900 text-white px-4 pt-32 pb-10">
+
+        <div style={{overflow:scroll, scrollbarWidth:"none"}} className="space-y-10 min-h-screen bg-gradient-to-br from-black via-indigo-950 to-pink-900 text-white px-4 pb-10 pt-30">
             {/* Header */}
             <div className="flex items-center justify-between">
                 <div className="flex flex-col md:flex-row items-center md:justify-between w-full gap-3">
@@ -600,7 +598,7 @@ const SortingVisualizer = ({ onBack }) => {
             </CardContent>
             </Card>
         </div>
-        </>
+
     );
 };
 

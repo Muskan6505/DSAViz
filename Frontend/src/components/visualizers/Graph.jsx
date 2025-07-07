@@ -13,7 +13,6 @@ import {
     Button, 
     Slider,
     Badge,
-    Navbar
 } from '../index.js';
 import {
     ChevronLeft,
@@ -505,8 +504,6 @@ const GraphVisualizer = ({ onBack }) => {
     };
 
     return (
-    <>
-    <Navbar/>
     <div className="space-y-10 bg-gradient-to-br from-black via-indigo-950 to-pink-900 pt-30 px-8 text-white">
         {/* Header */}
         <div className="flex items-center justify-between">
@@ -790,7 +787,6 @@ const GraphVisualizer = ({ onBack }) => {
             </CardContent>
         </Card>
         </div>
-        </>
     );
 };
 
