@@ -1,8 +1,27 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export default function CategoryCard({ icon, title, subtitle, items, markerColor, route}) {
+export default function CategoryCard({
+    icon,
+    title,
+    subtitle,
+    items,
+    markerColor,
+    route,
+    user,
+    triggerLogin,
+}) {
+    const navigate = useNavigate();
+
+    const handleExplore = () => {
+        if (user) {
+        navigate(`/${route}`);
+        } else {
+        triggerLogin();
+        }
+    };
+
     return (
         <div className="bg-black/90 rounded-xl p-6 border border-gray-800 shadow-gray-700 hover:shadow-md transition duration-300">
         <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${markerColor.bg}`}>
@@ -15,10 +34,12 @@ export default function CategoryCard({ icon, title, subtitle, items, markerColor
             <li key={idx} className={`marker:${markerColor.text}`}>{item}</li>
             ))}
         </ul>
-        <Link to={`/${route}`} 
-        className="mt-4 bg-black border border-gray-700 hover:border-gray-500 text-white px-6 py-2 rounded-lg flex items-center gap-2 cursor-pointer">
+        <button
+            onClick={handleExplore}
+            className="mt-4 bg-black border border-gray-700 hover:border-gray-500 text-white px-6 py-2 rounded-lg flex items-center gap-2 cursor-pointer"
+        >
             Explore <ArrowRight size={16} />
-        </Link>
+        </button>
         </div>
     );
 }

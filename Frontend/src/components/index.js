@@ -14,6 +14,8 @@ import SortingVisualizer from './visualizers/Sorting';
 import GraphVisualizer from './visualizers/Graph';
 import TreeVisualizer from './visualizers/Tree';
 
+import CodeEditor from './CodeEditor';
+
 export{
     HomeCard, 
     Navbar,
@@ -35,5 +37,6 @@ export{
     Slider,
     SortingVisualizer,
     GraphVisualizer,
-    TreeVisualizer
+    TreeVisualizer,
+    CodeEditor
 }

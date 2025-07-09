@@ -15,6 +15,7 @@ import { Login, Signup } from "../components/index.js";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../features/userSlice"; 
 import Profile from "./Profile";
+import axios from "axios";
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -27,13 +28,14 @@ export default function Navbar() {
     const user = useSelector((state) => state.user);
     const isLoggedIn = user.isLoggedIn;
 
-    const handleLogout = () => {
+    const handleLogout = async() => {
         dispatch(logout());
+        const res = await axios.post("/api/v1/users/logout", {}, { withCredentials:true })
         setDropdownOpen(false);
     };
 
     return (
-        <nav className="bg-black/70 text-white px-6 py-4 fixed top-0 left-0 right-0 z-50 shadow-md shadow-gray-700">
+        <nav className="bg-black/90 text-white px-6 py-4 fixed top-0 left-0 right-0 z-50 shadow-md shadow-gray-700">
             <div className="flex items-center justify-between">
                 <Link to="/" className="flex items-center gap-2">
                     <div className="relative w-8 h-8 bg-[#4F46E5] rounded-xl flex items-center justify-center">
